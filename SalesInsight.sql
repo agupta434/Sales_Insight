@@ -1,0 +1,11 @@
+SELECT count(*) FROM sales.transactions;
+SELECT * FROM sales.transactions limit 5;
+SELECT * FROM sales.transactions where market_code="Mark001";
+SELECT * FROM sales.transactions where currency="USD";
+SELECT * FROM sales.date;
+SELECT * FROM sales.transactions;
+Select sales.transactions.*, sales.date.* from sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date;
+Select sales.transactions.*, sales.date.* from sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date where sales.date.year="2020";
+Select sum(sales.transactions.sales_amount) from sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date where sales.date.year="2020";
+Select sum(sales.transactions.sales_amount) from sales.transactions INNER JOIN sales.date ON sales.transactions.order_date=sales.date.date where sales.date.year="2020" and sales.transactions.market_code="Mark001";
+select distinct product_code FROM sales.transactions where market_code="Mark001";
